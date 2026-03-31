@@ -60,6 +60,14 @@ WEEKDAYS_UK = {
     3: "Четвер",    4: "П'ятниця", 5: "Субота", 6: "Неділя",
 }
 
+LESSON_NUMBER = {
+    "07:45:00": "1",
+    "09:30:00": "2",
+    "11:15:00": "3",
+    "13:10:00": "4",
+    "14:55:00": "5",
+    "16:40:00": "6",
+}
 # Semester bounds — used when fetching the full CSV
 # Wide range so we always get the current semester
 SEMESTER_START = "01.02.2026"
@@ -163,7 +171,6 @@ def fetch_csv(group_id: int) -> list[dict]:
             # row[2]: time start  HH:MM:SS
             # row[3]: date end    DD.MM.YYYY
             # row[4]: time end    HH:MM:SS
-            # row[9]: pair number
 
             first_field = row[0].strip()
 
@@ -178,7 +185,7 @@ def fetch_csv(group_id: int) -> list[dict]:
             date_str  = row[1].strip()   # DD.MM.YYYY
             t_start   = row[2].strip()[:5]  # HH:MM
             t_end     = row[4].strip()[:5]  # HH:MM
-            pair_num  = row[9].strip()
+            pair_num = LESSON_NUMBER.get(row[2].strip())
 
             # Parse date
             date = datetime.strptime(date_str, "%d.%m.%Y").date()
