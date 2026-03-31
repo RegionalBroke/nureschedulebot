@@ -1,0 +1,7 @@
+services:
+  nure-bot:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ./chat_settings.json:/app/chat_settings.json:rw

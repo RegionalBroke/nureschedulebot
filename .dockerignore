@@ -1,0 +1,16 @@
+# Git
+.git
+.gitignore
+
+# Secrets and Local Config
+.env
+chat_settings.json
+README.md
+
+# Python
+__pycache__/
+*.pyc
+
+# Docker
+Dockerfile
+docker-compose.yml

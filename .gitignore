@@ -1,0 +1,13 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Environments and Secrets
+.env
+chat_settings.json
+
+# Local Data
+schedule.csv
+
+# OS generated files
+.DS_Store
